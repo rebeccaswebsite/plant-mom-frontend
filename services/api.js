@@ -1,5 +1,5 @@
 export const login = (loginUsername, loginPassword) => {
-    const baseURL = "http://localhost:3000/api/v1/";
+    const baseURL = "http://localhost:3000/api/v1";
     const loginURL = baseURL + "/login";
     const options = {
       method: "POST",
@@ -12,6 +12,18 @@ export const login = (loginUsername, loginPassword) => {
   
     return fetch(loginURL, options).then(resp => resp.json());
   }
+
+  export function validate () {
+    return fetch(baseURL + "/validate", {
+	    headers: { 'Authorisation': localStorage.token }
+    }).then(resp => resp.json())
+}
+
+export function getMyRooms () {
+    return fetch(baseURL + "/my-rooms", {
+	    headers: { 'Authorisation': localStorage.token }
+    }).then(resp => resp.json())
+}
   
-  export default { login };
+  export default { login, validate, getMyRooms };
   
