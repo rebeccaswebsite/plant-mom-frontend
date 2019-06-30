@@ -1,5 +1,6 @@
+const baseURL = "http://localhost:3000/api/v1";
+
 export const login = (loginUsername, loginPassword) => {
-    const baseURL = "http://localhost:3000/api/v1";
     const loginURL = baseURL + "/login";
     const options = {
       method: "POST",

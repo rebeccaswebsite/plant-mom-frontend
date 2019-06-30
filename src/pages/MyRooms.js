@@ -33,11 +33,11 @@ class MyRooms extends React.Component {
 
     return (
       <div >
-        <h3>Here's your rooms:</h3>
-        { myRooms.length === 0 && <p>You don't have any plant rooms yet..</p>}
+        <h3>Here are your rooms:</h3>
+        { myRooms.length === 0 && <p>You don't have any plant rooms yet...</p>}
         {
           myRooms.map(room =>
-            <Room key={item.id} room={room} />
+            <Room key={room.id} room={room} />
           )
         }
       </div>
