@@ -28,6 +28,11 @@ export function getMyRooms () {
 	    headers: { 'Authorisation': localStorage.token }
     }).then(resp => resp.json())
 }
+
+export function getPlants () {
+  return fetch(baseURL + "/plants")
+  .then(resp => resp.json())
+}
   
-  export default { login, validate, getMyRooms };
+  export default { login, validate, getMyRooms, getPlants };
   

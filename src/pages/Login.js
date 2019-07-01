@@ -14,6 +14,7 @@ class Login extends React.PureComponent {
         alert(data.error);
       } else {
         this.props.login(data);
+        this.props.history.push('/my-rooms')
       }
     });
   };
