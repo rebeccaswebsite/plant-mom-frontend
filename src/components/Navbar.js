@@ -1,32 +1,15 @@
 import React from 'react'
-import { Link } from "react-router-dom";
 
 const Navbar = props => {
 	return (
-		<div>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-            <a className="navbar-brand" href="/">
-            Plant Mom
-            </a>
-            
-            <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                <li className="nav-item active">
-                    <Link className="nav-link" to="/login">
-                    Login
-                    </Link>
-                </li>
-                <li className="nav-item active">
-                    <Link className="nav-link" to="/my-rooms">
-                    My Plant Rooms
-                    </Link>
-                </li>
-                <li onClick={props.logout} className="nav-item">
-                    Logout
-                </li>
-                </ul>
+        <div className="ui stackable menu">
+            <div className="item">
+                <img src="/logo.png" alt="Logo" />
             </div>
-            </nav>
+            <a href='my-rooms' className="item">My Plant Rooms</a>
+            <a href='plants' className="item">Plants</a>
+            <a href='login' className="item active">Signin</a>
+            <a onClick={props.logout} className="item">Signout</a>
         </div>
 	)
 }

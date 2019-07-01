@@ -29,13 +29,17 @@ class Login extends React.PureComponent {
 
     return (
       <div>
-        <form>
-            <label>Username</label>
-            <input type="text" name="username" value={username} onChange={handleChange} />
-            <label>Password</label>
-            <input type="text" name="password" value={password} onChange={handleChange} />
+        <form className="ui form">
+          <div className="field">
+              <label>Username</label>
+              <input type="text" name="username" value={username} onChange={handleChange} />
+          </div>
+          <div className="field">
+              <label>Password</label>
+              <input type="text" name="password" value={password} onChange={handleChange} />
+          </div>
         </form>
-        <button onClick={handleSubmit}>
+        <button className="ui button" onClick={handleSubmit}>
           SUBMIT
         </button>
       </div>
