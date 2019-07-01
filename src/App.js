@@ -18,7 +18,6 @@ class App extends Component {
   login = (user) => {
     this.setState({ username: user.username })
     localStorage.setItem('token', user.token)
-    // this.props.history.push('/my-rooms')
   }
 
   logout = () => {
