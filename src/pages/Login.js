@@ -13,7 +13,7 @@ class Login extends React.PureComponent {
       if (data.error) {
         alert(data.error);
       } else {
-        this.props.login(data.token, data.username);
+        this.props.login(data);
       }
     });
   };
@@ -30,7 +30,9 @@ class Login extends React.PureComponent {
     return (
       <div>
         <form>
+            <label>Username</label>
             <input type="text" name="username" value={username} onChange={handleChange} />
+            <label>Password</label>
             <input type="text" name="password" value={password} onChange={handleChange} />
         </form>
         <button onClick={handleSubmit}>

@@ -1,5 +1,4 @@
 import React from 'react'
-import PlantCard from './PlantCard'
 
 class Room extends React.Component {
 

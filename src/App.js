@@ -4,6 +4,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import Login from './pages/Login'
 import MyRooms from './pages/MyRooms'
+import Navbar from './components/Navbar'
 
 import { validate } from './services/api'
 
@@ -21,13 +22,13 @@ class App extends Component {
     this.props.history.push('/my-rooms')
   }
 
-  signout = () => {
+  logout = () => {
     this.setState({ username: '' })
     localStorage.removeItem('token')
   }
 
   componentDidMount () {
-    if (localStorage.token) {
+    if (localStorage.token && localStorage.token !== 'undefined' ) {
       validate()
         .then(data => {
           if (data.error) {
@@ -40,10 +41,11 @@ class App extends Component {
   }
 
   render() {
-    const { login } = this
+    const { login, logout } = this
     const { username } = this.state
     return (
       <div >
+        <Navbar logout={logout} /> 
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/login' component={props => <Login login={login} {...props} />} />
@@ -55,4 +57,4 @@ class App extends Component {
   }
 }
 
-export default App
+export default withRouter(App)

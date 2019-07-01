@@ -1,10 +1,13 @@
-const baseURL = "http://localhost:3000/api/v1";
+const baseURL = "http://localhost:3000";
 
 export const login = (loginUsername, loginPassword) => {
     const loginURL = baseURL + "/login";
     const options = {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers : { 
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+       },
       body: JSON.stringify({
         username: loginUsername,
         password: loginPassword
