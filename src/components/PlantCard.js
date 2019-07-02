@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { Card, Image } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import { Card, Image, Icon } from 'semantic-ui-react'
 import PlantDetails from './PlantDetails'
 
 export default class PlantCard extends Component {
@@ -14,8 +15,8 @@ export default class PlantCard extends Component {
     render() {
         const { plant } = this.props
         return(
-            <Card onClick={this.handleClick} >
-                <Image src={plant.img} wrapped ui={false} />
+            <Card>
+                <Image onClick={this.handleClick} src={plant.img} wrapped ui={false} />
                 <Card.Content>
                 <Card.Header>{plant.common_name}</Card.Header>
                 </Card.Content>
@@ -23,6 +24,10 @@ export default class PlantCard extends Component {
                 ? <PlantDetails plant={plant}/>
                 : null
                 }
+                <Card.Content as={ Link } to="/add-detail" extra>
+                    <Icon name='add' />
+                    Suggest an instruction on how to look after this plant
+                </Card.Content>
             </Card>
         )
     }

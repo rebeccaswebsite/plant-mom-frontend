@@ -4,6 +4,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import Login from './pages/Login'
 import MyRooms from './pages/MyRooms'
+import AddDetail from './pages/AddDetail'
 import Navbar from './components/Navbar'
 import PlantList from './components/PlantList'
 
@@ -23,6 +24,7 @@ class App extends Component {
   logout = () => {
     this.setState({ username: '' })
     localStorage.removeItem('token')
+    this.props.history.push('/')
   }
 
   componentDidMount () {
@@ -48,6 +50,7 @@ class App extends Component {
           <Route exact path='/' component={HomePage} />
           <Route path='/my-rooms' component={props => <MyRooms username={username} {...props} />} />
           <Route path='/plants' component={PlantList} />
+          <Route path='/add-detail' component={AddDetail} />
           <Route path='/login' component={props => <Login login={login} {...props} />} />
           <Route component={() => <h1>Page not found.</h1>} />
         </Switch>
