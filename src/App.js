@@ -33,7 +33,6 @@ class App extends Component {
             alert(data.error)
           } else {
             this.login(data)
-            console.log(this.state)
           }
         })
     }
