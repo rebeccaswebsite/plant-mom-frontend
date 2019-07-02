@@ -33,6 +33,22 @@ export function getPlants () {
   return fetch(baseURL + "/plants")
   .then(resp => resp.json())
 }
+export const sendSuggestion = (plant_id, suggestion) => {
+  const suggestion_url = baseURL + "/suggestions";
+  const options = {
+    method: "POST",
+    headers : { 
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+     },
+    body: JSON.stringify({
+      plant_id: plant_id,
+      suggestion: suggestion
+    })
+  };
+
+  return fetch(suggestion_url, options).then(resp => resp.json());
+}
   
-  export default { login, validate, getMyRooms, getPlants };
+  export default { login, validate, getMyRooms, getPlants, sendSuggestion };
   
