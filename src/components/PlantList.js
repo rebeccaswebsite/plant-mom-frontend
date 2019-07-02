@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { getPlants } from '../services/api'
 import { Card } from 'semantic-ui-react'
-import PlantCard from '../components/PlantCard'
+import PlantCard from './PlantCard'
 
 export default class PlantList extends Component {
     state = {
