@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage'
 import Login from './pages/Login'
 import MyRooms from './pages/MyRooms'
 import AddDetail from './pages/AddDetail'
+import AddRoom from './pages/AddRoom'
 import Navbar from './components/Navbar'
 import PlantList from './components/PlantList'
 
@@ -13,11 +14,11 @@ import { validate } from './services/api'
 class App extends Component {
 
   state = {
-    username: ""
+    user: ""
   }
 
   login = (user) => {
-    this.setState({ username: user.username })
+    this.setState({ user: user})
     localStorage.setItem('token', user.token)
   }
 
@@ -42,15 +43,16 @@ class App extends Component {
 
   render() {
     const { login, logout } = this
-    const { username } = this.state
+    const { user } = this.state
     return (
       <div >
         <Navbar logout={logout} /> 
         <Switch>
           <Route exact path='/' component={HomePage} />
-          <Route path='/my-rooms' component={props => <MyRooms username={username} {...props} />} />
+          <Route path='/my-rooms' component={props => <MyRooms user={user} {...props} />} />
           <Route path='/plants' component={PlantList} />
           <Route path='/add-detail' component={AddDetail} />
+          <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />
           <Route path='/login' component={props => <Login login={login} {...props} />} />
           <Route component={() => <h1>Page not found.</h1>} />
         </Switch>

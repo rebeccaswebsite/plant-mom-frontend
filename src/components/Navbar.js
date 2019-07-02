@@ -12,6 +12,7 @@ const Navbar = props => {
           >
             Plant Mom
           </Menu.Item>
+
           <Menu.Item
             name='my-rooms'
             as={ Link }

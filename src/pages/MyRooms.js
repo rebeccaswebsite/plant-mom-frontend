@@ -1,7 +1,6 @@
 import React from 'react'
-
 import Room from '../components/Room'
-
+import { Link } from 'react-router-dom'
 import { getMyRooms } from '../services/api'
 
 class MyRooms extends React.Component {
@@ -21,7 +20,7 @@ class MyRooms extends React.Component {
   }
 
   componentDidMount () {
-    if (!this.props.username) {
+    if (!this.props.user) {
       this.props.history.push('/login')
     } else {
       this.setMyRoom()
@@ -40,7 +39,8 @@ class MyRooms extends React.Component {
             <Room key={room.id} room={room} />
           )
         }
-      </div>
+        <Link to="/add-room">Add a new room</Link>
+        </div>
     )
   }
 }
