@@ -10,11 +10,10 @@ export default class AddRoom extends Component {
   handleSubmit = () => {
     addRoom(this.props.user.user_id, this.state.roomName).then(data => {
       if (data.error) {
-        console.log(data)
         alert(data.error);
       } else {
-        // room show page
-        console.log(data)
+        alert('Your room has been added!')
+        // this.props.history.push('/add-plants-to-my-room')
       }
     });
   };

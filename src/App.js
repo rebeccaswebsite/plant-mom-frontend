@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { Route, Switch, withRouter } from 'react-router-dom'
 
 import HomePage from './pages/HomePage'
-import Login from './pages/Login'
+import Login from './components/Login'
+import Register from './components/Register'
 import MyRooms from './pages/MyRooms'
 import AddDetail from './pages/AddDetail'
 import AddRoom from './pages/AddRoom'
+import AddPlantsToRoom from './pages/AddPlantsToRoom'
 import Navbar from './components/Navbar'
 import PlantList from './components/PlantList'
 
@@ -48,12 +50,14 @@ class App extends Component {
       <div >
         <Navbar logout={logout} /> 
         <Switch>
-          <Route exact path='/' component={HomePage} />
+          <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
           <Route path='/my-rooms' component={props => <MyRooms user={user} {...props} />} />
           <Route path='/plants' component={PlantList} />
           <Route path='/add-detail' component={AddDetail} />
           <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />
-          <Route path='/login' component={props => <Login login={login} {...props} />} />
+          <Route path='/add-plants-to-my-room' component={props => <AddPlantsToRoom user={user} {...props} />} />
+          <Route path='/login' component={props => <Login {...props} />} />
+          <Route path='/register' component={props => <Register {...props} />} />
           <Route component={() => <h1>Page not found.</h1>} />
         </Switch>
       </div>

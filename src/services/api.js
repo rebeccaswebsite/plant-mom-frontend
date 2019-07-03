@@ -17,6 +17,23 @@ export const login = (loginUsername, loginPassword) => {
     return fetch(loginURL, options).then(resp => resp.json());
   }
 
+export const signUp = (username, password) => {
+    const signUpURL = baseURL + "/users";
+    const options = {
+      method: "POST",
+      headers : { 
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+       },
+      body: JSON.stringify({
+        username: username,
+        password: password
+      })
+    };
+  
+  return fetch(signUpURL, options).then(resp => resp.json())
+}
+
 export function validate () {
     return fetch(baseURL + "/validate", {
 	    headers: { 'Authorisation': localStorage.token }
@@ -68,5 +85,5 @@ export const addRoom = (user_id, name) => {
   return fetch(roomsURL, options).then(resp => resp.json());
 }
   
-  export default { login, validate, getMyRooms, getPlants, sendSuggestion, addRoom };
+  export default { login, validate, getMyRooms, getPlants, sendSuggestion, addRoom, signUp };
   

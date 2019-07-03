@@ -8,7 +8,6 @@ export default class AddDetail extends Component {
         suggestion: "",
         plantNames: []
     };
-
     
     componentDidMount () {
         getPlants()
