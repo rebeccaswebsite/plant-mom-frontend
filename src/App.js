@@ -57,7 +57,7 @@ class App extends Component {
           <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />
           <Route path='/add-plants-to-my-room' component={props => <AddPlantsToRoom user={user} {...props} />} />
           <Route path='/login' component={props => <Login {...props} />} />
-          <Route path='/register' component={props => <Register {...props} />} />
+          <Route path='/register' component={props => <Register login={login} {...props} />} />
           <Route component={() => <h1>Page not found.</h1>} />
         </Switch>
       </div>

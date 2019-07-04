@@ -27,7 +27,6 @@ const Login = props => {
               icon='lock'
               iconPosition='left'
               placeholder='Password'
-              type='password'
               type="text" 
               name="password" 
               value={password} 
