@@ -17,7 +17,7 @@ const Login = props => {
               fluid icon='user' 
               iconPosition='left' 
               placeholder='Username'
-              type="text" 
+              type="username" 
               name="username"
               value={username} 
               onChange={handleChange}
@@ -27,7 +27,7 @@ const Login = props => {
               icon='lock'
               iconPosition='left'
               placeholder='Password'
-              type="text" 
+              type="password" 
               name="password" 
               value={password} 
               onChange={handleChange}

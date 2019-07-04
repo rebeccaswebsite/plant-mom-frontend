@@ -4,6 +4,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import Login from './components/Login'
 import Register from './components/Register'
+import Room from './components/Room'
 import MyRooms from './pages/MyRooms'
 import AddDetail from './pages/AddDetail'
 import AddRoom from './pages/AddRoom'
@@ -52,6 +53,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
           <Route path='/my-rooms' component={props => <MyRooms user={user} {...props} />} />
+          <Route path='/rooms/:id' component={props => <Room user={user} {...props} />} />
           <Route path='/plants' component={PlantList} />
           <Route path='/add-detail' component={AddDetail} />
           <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />

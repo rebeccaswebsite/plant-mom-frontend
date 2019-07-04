@@ -50,7 +50,7 @@ export default class HomePage extends Component {
                   icon='lock'
                   iconPosition='left'
                   placeholder='Choose a password'
-                  type="text" 
+                  type="password" 
                   name="password" 
                   value={password} 
                   onChange={handleChange}
