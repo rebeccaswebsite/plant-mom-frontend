@@ -1,5 +1,5 @@
 import React from 'react'
-import PlantCard from './PlantCard'
+import PlantCard from '../components/PlantCard'
 import { Link } from 'react-router-dom'
 import { Card, Button } from 'semantic-ui-react'
 import { deleteRoom } from '../services/api'
@@ -10,16 +10,16 @@ class Room extends React.Component {
   }
 
   render () {
-    // const { room } = this.props;    
+    const { room } = this.props;    
     return (
       <div>
-        {/* <Card.Group>
-          <h3>{room.name}</h3></Link>
+        <Card.Group>
+          <h3>{room.name}</h3>
             {
               room.plants.map(plant => <PlantCard key={plant.id} plant={plant} /> )
             }
             <Button onClick={this.handleClick}>X</Button>
-        </Card.Group>  */}
+        </Card.Group> 
       </div>
     )
   }

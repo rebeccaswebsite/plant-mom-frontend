@@ -4,20 +4,20 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import Login from './components/Login'
 import Register from './components/Register'
-import Room from './components/Room'
 import MyRooms from './pages/MyRooms'
+import Room from './pages/Room'
 import AddDetail from './pages/AddDetail'
 import AddRoom from './pages/AddRoom'
-import AddPlantsToRoom from './pages/AddPlantsToRoom'
 import Navbar from './components/Navbar'
 import PlantList from './components/PlantList'
 
-import { validate } from './services/api'
+import { validate, getMyRooms } from './services/api'
 
 class App extends Component {
 
   state = {
-    user: ""
+    user: "",
+    myRooms: []
   }
 
   login = (user) => {
@@ -31,6 +31,17 @@ class App extends Component {
     this.props.history.push('/')
   }
 
+  setMyRoom = () => {
+    getMyRooms()
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
+        } else {
+          this.setState({ myRooms: data })
+        }
+      })
+  }
+
   componentDidMount () {
     if (localStorage.token && localStorage.token !== 'undefined') {
       validate()
@@ -39,6 +50,7 @@ class App extends Component {
             alert(data.error)
           } else {
             this.login(data)
+            this.setMyRoom()
           }
         })
     }
@@ -46,18 +58,16 @@ class App extends Component {
 
   render() {
     const { login, logout } = this
-    const { user } = this.state
+    const { user, myRooms } = this.state
     return (
       <div >
         <Navbar logout={logout} /> 
         <Switch>
           <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
-          <Route path='/my-rooms' component={props => <MyRooms user={user} {...props} />} />
-          <Route path='/rooms/:id' component={props => <Room user={user} {...props} />} />
+          <Route path='/my-rooms' component={props => <MyRooms user={user} myRooms={myRooms} {...props} />} />
           <Route path='/plants' component={PlantList} />
           <Route path='/add-detail' component={AddDetail} />
           <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />
-          <Route path='/add-plants-to-my-room' component={props => <AddPlantsToRoom user={user} {...props} />} />
           <Route path='/login' component={props => <Login {...props} />} />
           <Route path='/register' component={props => <Register login={login} {...props} />} />
           <Route component={() => <h1>Page not found.</h1>} />
