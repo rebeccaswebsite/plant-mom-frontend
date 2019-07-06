@@ -1,35 +1,16 @@
 import React from 'react'
 import Room from './Room'
 import { Route, Link } from 'react-router-dom'
-import { getMyRooms } from '../services/api'
 
 class MyRooms extends React.Component {
-  // state = {
-  //   myRooms: []
-  // }
-
-  // setMyRoom = () => {
-  //   getMyRooms()
-  //     .then(data => {
-  //       if (data.error) {
-  //         alert(data.error)
-  //       } else {
-  //         this.setState({ myRooms: data })
-  //       }
-  //     })
-  // }
-
   componentDidMount () {
     if (!this.props.user) {
       this.props.history.push('/login')
     }
-    // } else {
-    //   this.setMyRoom()
-    // }
   }
 
   render () {
-    const { user, myRooms } = this.props;
+    const { myRooms } = this.props;
     
     return (
       <>

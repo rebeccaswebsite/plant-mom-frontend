@@ -19,6 +19,7 @@ class Room extends React.Component {
               room.plants.map(plant => <PlantCard key={plant.id} plant={plant} /> )
             }
             <Button onClick={this.handleClick}>X</Button>
+            <Link to='/my-rooms'>BACK</Link>
         </Card.Group> 
       </div>
     )
