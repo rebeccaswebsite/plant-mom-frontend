@@ -68,14 +68,14 @@ class App extends Component {
   }
 
   render() {
-    const { login, logout, removeRoom } = this;
+    const { login, logout, setMyRoom, removeRoom } = this;
     const { user, myRooms } = this.state;
     return (
       <div >
         <Navbar logout={logout} /> 
         <Switch>
           <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
-          <Route path='/my-rooms' component={props => <MyRooms user={user} myRooms={myRooms} removeRoom={removeRoom} {...props} />} />
+          <Route path='/my-rooms' component={props => <MyRooms user={user} myRooms={myRooms} removeRoom={removeRoom} setMyRoom={setMyRoom} {...props} />} />
           <Route path='/plants' component={PlantList} />
           <Route path='/add-detail' component={AddDetail} />
           <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />
@@ -90,20 +90,14 @@ class App extends Component {
 
 export default withRouter(App)
 
-// id: 26
-// name: "Kitchen"
-// plants: Array(1)
-// 0: {id: 24, common_name: "Spider plant", img: "/spider_plant.jpg", details: Array(1)}
-// length: 1
-// __proto__: Array(0)
-// user_id: 13
-// __proto__: Object
-
-// id:
-// 27
-// name:
-// "Bathroom"
-// plants:
-// Array[1]
-// user_id:
-// 13
+// componentDidUpdate(prevProps) {
+//   const {
+//     match: {
+//       params: { postId }
+//     }
+//   } = this.props;
+//   const prevPostId = prevProps.match.params.postId;
+//   if (prevPostId !== postId) {
+//     this.fetchPostData(postId);
+//   }
+// }

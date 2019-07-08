@@ -12,8 +12,9 @@ export default class AddRoom extends Component {
       if (data.error) {
         alert(data.error);
       } else {
+        console.log(data)
         alert('Your room has been added!')
-        // this.props.history.push('/add-plants-to-my-room')
+        this.props.history.push(`/my-rooms/${data.id}`)
       }
     });
   };
