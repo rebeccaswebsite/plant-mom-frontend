@@ -87,7 +87,7 @@ class App extends Component {
         <Navbar logout={logout} /> 
         <Switch>
           <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
-          <Route path='/my-rooms' component={props => <MyRooms plants= {plants} user={user} myRooms={myRooms} removeRoom={removeRoom} {...props} />} />
+          <Route path='/my-rooms' component={props => <MyRooms plants= {plants} user={user} myRooms={myRooms} setMyRoom={setMyRoom} removeRoom={removeRoom} {...props} />} />
           <Route path='/plants' component={props => <PlantList plants={plants} />} />
           <Route path='/add-detail' component={AddDetail} />
           <Route path='/add-room' component={props => <AddRoom user={user} setMyRoom={setMyRoom} {...props} />} />

@@ -37,7 +37,7 @@ export default class PlantDropdown extends Component {
     }
     
         render() {
-        const { handleSubmit } = this.props;
+        const { handleSubmit, room } = this.props;
         const { plantId, plantNames, suggestion } = this.state;
         const { getPlantId, handleChange } = this;
     
@@ -56,9 +56,9 @@ export default class PlantDropdown extends Component {
                 <Form.Field>
                 <label>Suggestion</label>
                 <input name="suggestion" value={suggestion} onChange={handleChange}  />
-                </Form.Field> */}
-                <Button onClick={handleSubmit(plantId)} type='submit'>Submit</Button>
-            {/* </Form> */}
+                </Form.Field> */
+                /* </Form> */}
+                <Button onClick={() => handleSubmit(room.id, plantId)}>Submit</Button>
             </div>
         )
     }

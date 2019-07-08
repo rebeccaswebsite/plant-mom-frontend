@@ -10,7 +10,7 @@ class MyRooms extends React.Component {
   }
 
   render () {
-    const { plants, myRooms, removeRoom } = this.props;
+    const { plants, myRooms, setMyRoom, removeRoom } = this.props;
     
     return (
       <>
@@ -38,7 +38,7 @@ class MyRooms extends React.Component {
           return <h1>Loading...</h1>
         }
   
-        return <Room room={selectedRoom} plants={plants} removeRoom={removeRoom} {...props} />
+        return <Room room={selectedRoom} plants={plants} setMyRoom={setMyRoom} removeRoom={removeRoom} {...props} />
       }} />
       </>
     )

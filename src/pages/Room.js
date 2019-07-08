@@ -11,20 +11,21 @@ class Room extends React.Component {
     this.props.removeRoom(this.props.room);
   }
 
-  handleSubmit = plant_id => {
-    updateRoom(this.props.room.id, plant_id)
+  handleSubmit = (room_id, plant_id)=> {
+    updateRoom(room_id, plant_id)
+    this.props.setMyRoom()
   }
 
   render () {
     const { room, plants } = this.props;    
     return (
       <div>
-        <PlantDropdown handleSubmit={this.handleSubmit} plants={plants} />
+        <PlantDropdown handleSubmit={this.handleSubmit} plants={plants} room={room} />
         <br/>
         <Card.Group>
           <h3>{room.name}</h3>
             {
-              room.plants.map(plant => <PlantCard key={plant.id} plant={plant} /> )
+              room.plants.map((plant,index) => <PlantCard key={index} plant={plant} /> )
             }
             <Button onClick={this.handleClick}>X</Button>
             <Link to='/my-rooms'>BACK</Link>
