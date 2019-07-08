@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { Card, Image, Icon } from 'semantic-ui-react'
 import PlantDetails from './PlantDetails'
+import { deleteRoomPlant } from '../services/api'
 
 export default class PlantCard extends Component {
     state = {

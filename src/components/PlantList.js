@@ -17,6 +17,9 @@ export default class PlantList extends Component {
         const filteredPlants = this.props.plants
           .filter(plant => plant["common_name"].toLowerCase().includes(this.state.searchTerm.toLowerCase()))
         this.setState({ filteredPlants: filteredPlants })
+        if (this.state.searchTerm == '') {
+          this.setState({ filteredPlants: this.props.plants })
+        }
       }
 
       updateSearchTerm = (event) => {
@@ -29,7 +32,7 @@ export default class PlantList extends Component {
           <div >
             <Search searchTerm={searchTerm} updateSearchTerm={this.updateSearchTerm} setFilteredPlants={this.setFilteredPlants}/>
             <h3>Plants</h3>
-            <Card.Group>
+            <Card.Group itemsPerRow={8}>
             { filteredPlants.length === 0 && <p>No plants listed yet!</p>}
             {
               filteredPlants !== 'undefined'

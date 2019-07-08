@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default class Search extends Component {
-    handleSubmit = event => {
+    handleChange = event => {
         event.preventDefault();
         this.props.setFilteredPlants()
     }
@@ -9,8 +9,8 @@ export default class Search extends Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input value={this.props.searchTerm} onChange={this.props.updateSearchTerm} placeholder='enter your search here' />
+                <form onChange={this.handleChange}>
+                    <input value={this.props.searchTerm} onChange={this.props.updateSearchTerm} placeholder='Search' />
                 </form>
             </div>
         )
