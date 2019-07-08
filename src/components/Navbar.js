@@ -10,7 +10,7 @@ const Navbar = props => {
             as={ Link }
             to="/"
           >
-          <img style={{'font-size':53}} alt="plant mom" src={'/plant_mom_black_text.png'} />
+          <img style={{'fontSize':53}} alt="plant mom" src={'/plant_mom_black_text.png'} />
           </Menu.Item>
 
           <Menu.Item

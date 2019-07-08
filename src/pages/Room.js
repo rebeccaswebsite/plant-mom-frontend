@@ -22,7 +22,7 @@ class Room extends React.Component {
       <div>
         <PlantDropdown handleSubmit={this.handleSubmit} plants={plants} room={room} />
         <br/>
-        <Card.Group>
+        <Card.Group itemsPerRow={8}>
           <h3>{room.name}</h3>
             {
               room.plants.map((plant,index) => <PlantCard key={index} plant={plant} /> )
