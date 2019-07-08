@@ -71,10 +71,7 @@ class App extends Component {
         .then(data => {
           if (data.error) {
             alert(data.error)
-          } else {
-            this.login(data)
-            this.setMyRoom()
-          }
+          } 
         })
     }
   }
@@ -83,10 +80,10 @@ class App extends Component {
     const { login, logout, setMyRoom, removeRoom } = this;
     const { plants, user, myRooms } = this.state;
     return (
-      <div >
+      <div>
         <Navbar logout={logout} /> 
         <Switch>
-          <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
+          <Route exact path='/' component={props => <HomePage login={login} {...props} setMyRoom={setMyRoom}/>} />
           <Route path='/my-rooms' component={props => <MyRooms plants= {plants} user={user} myRooms={myRooms} setMyRoom={setMyRoom} removeRoom={removeRoom} {...props} />} />
           <Route path='/plants' component={props => <PlantList plants={plants} />} />
           <Route path='/add-detail' component={AddDetail} />

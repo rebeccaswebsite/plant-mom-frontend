@@ -14,6 +14,7 @@ export default class HomePage extends Component {
         alert(data.error);
       } else {
         this.props.login(data);
+        this.props.setMyRoom();
         this.props.history.push('/my-rooms')
       }
     });
