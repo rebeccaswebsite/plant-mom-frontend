@@ -13,11 +13,17 @@ import PlantList from './components/PlantList'
 import { validate, getMyRooms } from './services/api'
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      user: "",
+      myRooms: []
+    }
 
-  state = {
-    user: "",
-    myRooms: []
+    this.removeRoom = this.removeRoom.bind(this);
   }
+  
 
   login = (user) => {
     this.setState({ user: user})
@@ -41,6 +47,12 @@ class App extends Component {
       })
   }
 
+  removeRoom(room){
+    const { myRooms } = this.state;
+    this.setState({ myRooms: myRooms.filter(el => el.id !== room.id) })
+    this.props.history.push('/my-rooms')
+  }
+
   componentDidMount () {
     if (localStorage.token && localStorage.token !== 'undefined') {
       validate()
@@ -56,18 +68,18 @@ class App extends Component {
   }
 
   render() {
-    const { login, logout } = this
-    const { user, myRooms } = this.state
+    const { login, logout, removeRoom } = this;
+    const { user, myRooms } = this.state;
     return (
       <div >
         <Navbar logout={logout} /> 
         <Switch>
           <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
-          <Route path='/my-rooms' component={props => <MyRooms user={user} myRooms={myRooms} {...props} />} />
+          <Route path='/my-rooms' component={props => <MyRooms user={user} myRooms={myRooms} removeRoom={removeRoom} {...props} />} />
           <Route path='/plants' component={PlantList} />
           <Route path='/add-detail' component={AddDetail} />
           <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />
-          <Route path='/login' component={props => <Login {...props} />} />
+          <Route path='/login' component={Login} /> />
           <Route path='/register' component={props => <Register login={login} {...props} />} />
           <Route component={() => <h1>Page not found.</h1>} />
         </Switch>
@@ -77,3 +89,21 @@ class App extends Component {
 }
 
 export default withRouter(App)
+
+// id: 26
+// name: "Kitchen"
+// plants: Array(1)
+// 0: {id: 24, common_name: "Spider plant", img: "/spider_plant.jpg", details: Array(1)}
+// length: 1
+// __proto__: Array(0)
+// user_id: 13
+// __proto__: Object
+
+// id:
+// 27
+// name:
+// "Bathroom"
+// plants:
+// Array[1]
+// user_id:
+// 13

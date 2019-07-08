@@ -10,7 +10,7 @@ class MyRooms extends React.Component {
   }
 
   render () {
-    const { myRooms } = this.props;
+    const { myRooms, removeRoom } = this.props;
     
     return (
       <>
@@ -38,7 +38,7 @@ class MyRooms extends React.Component {
           return <h1>Room: {id} not found! Taking you back to your rooms in 3 seconds!</h1>
         }
   
-        return <Room room={selectedRoom} />
+        return <Room room={selectedRoom} removeRoom={removeRoom}/>
       }} />
       </>
     )

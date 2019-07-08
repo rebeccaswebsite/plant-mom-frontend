@@ -7,6 +7,7 @@ import { deleteRoom } from '../services/api'
 class Room extends React.Component {
   handleClick = () => {
     deleteRoom(this.props.room.id)
+    this.props.removeRoom(this.props.room);
   }
 
   render () {
