@@ -10,13 +10,14 @@ import AddRoom from './pages/AddRoom'
 import Navbar from './components/Navbar'
 import PlantList from './components/PlantList'
 
-import { validate, getMyRooms } from './services/api'
+import { validate, getMyRooms, getPlants } from './services/api'
 
 class App extends Component {
   constructor(props) {
     super(props)
   
     this.state = {
+      plants: [],
       user: "",
       myRooms: []
     }
@@ -24,7 +25,6 @@ class App extends Component {
     this.removeRoom = this.removeRoom.bind(this);
   }
   
-
   login = (user) => {
     this.setState({ user: user})
     localStorage.setItem('token', user.token)
@@ -53,7 +53,19 @@ class App extends Component {
     this.props.history.push('/my-rooms')
   }
 
+  setPlants = () => {
+    getPlants()
+      .then(data => {
+        if (data.error) {
+          alert(data.error)
+        } else {
+          this.setState({ plants: data["plants"] })
+        }
+      })
+  }
+
   componentDidMount () {
+    this.setPlants();
     if (localStorage.token && localStorage.token !== 'undefined') {
       validate()
         .then(data => {
@@ -69,16 +81,16 @@ class App extends Component {
 
   render() {
     const { login, logout, setMyRoom, removeRoom } = this;
-    const { user, myRooms } = this.state;
+    const { plants, user, myRooms } = this.state;
     return (
       <div >
         <Navbar logout={logout} /> 
         <Switch>
           <Route exact path='/' component={props => <HomePage login={login} {...props}/>} />
-          <Route path='/my-rooms' component={props => <MyRooms user={user} myRooms={myRooms} removeRoom={removeRoom} setMyRoom={setMyRoom} {...props} />} />
-          <Route path='/plants' component={PlantList} />
+          <Route path='/my-rooms' component={props => <MyRooms plants= {plants} user={user} myRooms={myRooms} removeRoom={removeRoom} {...props} />} />
+          <Route path='/plants' component={props => <PlantList plants={plants} />} />
           <Route path='/add-detail' component={AddDetail} />
-          <Route path='/add-room' component={props => <AddRoom user={user} {...props} />} />
+          <Route path='/add-room' component={props => <AddRoom user={user} setMyRoom={setMyRoom} {...props} />} />
           <Route path='/login' component={Login} /> />
           <Route path='/register' component={props => <Register login={login} {...props} />} />
           <Route component={() => <h1>Page not found.</h1>} />
@@ -89,15 +101,3 @@ class App extends Component {
 }
 
 export default withRouter(App)
-
-// componentDidUpdate(prevProps) {
-//   const {
-//     match: {
-//       params: { postId }
-//     }
-//   } = this.props;
-//   const prevPostId = prevProps.match.params.postId;
-//   if (prevPostId !== postId) {
-//     this.fetchPostData(postId);
-//   }
-// }

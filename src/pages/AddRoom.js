@@ -14,6 +14,7 @@ export default class AddRoom extends Component {
       } else {
         console.log(data)
         alert('Your room has been added!')
+        this.props.setMyRoom();
         this.props.history.push(`/my-rooms/${data.id}`)
       }
     });

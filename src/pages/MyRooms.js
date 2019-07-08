@@ -9,16 +9,8 @@ class MyRooms extends React.Component {
     }
   }
 
-  // componentDidUpdate(prevProps){
-  //   console.log(prevProps)
-  //   if (this.props.myRooms !== prevProps.myRooms) {
-  //     console.log("updating")
-  //     this.props.setMyRoom()
-  //   }
-  // }
-
   render () {
-    const { myRooms, removeRoom } = this.props;
+    const { plants, myRooms, removeRoom } = this.props;
     
     return (
       <>
@@ -38,15 +30,15 @@ class MyRooms extends React.Component {
         <Link to="/add-room">Add a new room</Link>
         </div>
       }/>
-      <Route path={'my-rooms/:id'} component={props => {
+      <Route path={this.props.match.url + '/:id'} component={props => {
         const id = props.match.params.id
         const selectedRoom = myRooms.find(room => parseInt(room.id) === parseInt(id))
         if (selectedRoom === undefined) {
-          setTimeout(() => props.history.push('/my-rooms'), 3000)
-          return <h1>Room: {id} not found! Taking you back to your rooms in 3 seconds!</h1>
+          // setTimeout(() => props.history.push('/my-rooms'), 3000)
+          return <h1>Loading...</h1>
         }
   
-        return <Room room={selectedRoom} removeRoom={removeRoom}/>
+        return <Room room={selectedRoom} plants={plants} removeRoom={removeRoom} {...props} />
       }} />
       </>
     )

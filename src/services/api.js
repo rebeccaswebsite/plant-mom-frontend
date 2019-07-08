@@ -100,6 +100,23 @@ export const deleteRoom = (room_id) => {
 
   return fetch(roomsURL, options).then(resp => resp.json());
 }
+
+export const updateRoom = (room_id, plant_id) => {
+  const roomplantsURL = baseURL + "/room_plants";
+  const options = {
+    method: "POST",
+    headers : { 
+      "Content-Type": "application/json",
+      "Accept": "application/json"
+     },
+    body: JSON.stringify({
+      room_id: room_id,
+      plant_id: plant_id 
+    })
+  };
+
+  return fetch(roomplantsURL, options).then(resp => resp.json());
+}
   
-  export default { login, validate, getMyRooms, getPlants, sendSuggestion, addRoom, signUp, deleteRoom };
+  export default { login, validate, getMyRooms, getPlants, sendSuggestion, addRoom, signUp, deleteRoom, updateRoom };
   

@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { getPlants } from '../services/api'
 import { Card } from 'semantic-ui-react'
 import PlantCard from './PlantCard'
 import Search from './Search'
@@ -7,34 +6,21 @@ import Search from './Search'
 export default class PlantList extends Component {
     state = {
       searchTerm: '',
-      plants: [],
       filteredPlants: []
       }
-    
-      setPlants = () => {
-        getPlants()
-          .then(data => {
-            if (data.error) {
-              alert(data.error)
-            } else {
-              this.setState({ plants: data["plants"] })
-              this.setState({ filteredPlants: data["plants"] })
-            }
-          })
-      }
+
+    componentDidMount = () => {
+      this.setState({ filteredPlants: this.props.plants })
+    }
 
       setFilteredPlants = () => {
-        const filteredPlants = this.state.plants
+        const filteredPlants = this.props.plants
           .filter(plant => plant["common_name"].toLowerCase().includes(this.state.searchTerm.toLowerCase()))
         this.setState({ filteredPlants: filteredPlants })
       }
 
       updateSearchTerm = (event) => {
         this.setState({ searchTerm: event.target.value })
-      }
-    
-      componentDidMount () {
-          this.setPlants()
       }
     
       render () {
