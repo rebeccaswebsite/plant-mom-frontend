@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { login } from '../services/api'
 import Login from '../components/Login'
 import '../index.css'
+import BackgroundImage from '../images/background.png'
 
 export default class HomePage extends Component {
   state = {
@@ -31,16 +32,14 @@ export default class HomePage extends Component {
     const { username, password } = this.state;
 
     return (
-      <div className="homepage-background">
-          { this.props.user === "" ? 
-          ( 
+      <div>
+          { !this.props.loggedIn ? ( 
             <div> 
-              <Login handleChange={handleChange} handleSubmit={handleSubmit} username={username} password={password} /> 
+             <Login handleChange={handleChange} handleSubmit={handleSubmit} username={username} password={password} /> 
             </div>
-          )
-           : null
+          ) :  <img src={BackgroundImage} alt="background" />
           }
       </div>
-    )
+    );
   }
 }

@@ -6,7 +6,7 @@ const Navbar = props => {
     return (
         <Menu>
           <Menu.Item
-            name='plant-mom'
+            name=''
             as={ Link }
             to="/"
           >

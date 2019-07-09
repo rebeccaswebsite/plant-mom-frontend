@@ -42,7 +42,10 @@ export function validate () {
 
 export function getMyRooms () {
     return fetch(baseURL + "/my-rooms", {
-	    headers: { 'Authorisation': localStorage.token }
+      headers: { 
+      "Content-Type": "application/json", 
+      'Authorisation': localStorage.token 
+    }
     }).then(resp => resp.json())
 }
 

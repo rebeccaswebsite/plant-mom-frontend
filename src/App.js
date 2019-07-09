@@ -19,19 +19,20 @@ class App extends Component {
     this.state = {
       plants: [],
       user: "",
-      myRooms: []
+      myRooms: [],
+      loggedIn: false
     }
 
     this.removeRoom = this.removeRoom.bind(this);
   }
   
   login = (user) => {
-    this.setState({ user: user})
+    this.setState({ user: user, loggedIn: true })
     localStorage.setItem('token', user.token)
   }
 
   logout = () => {
-    this.setState({ username: '' })
+    this.setState({ user: "", loggedIn: false })
     localStorage.removeItem('token')
     this.props.history.push('/')
   }
@@ -81,12 +82,12 @@ class App extends Component {
 
   render() {
     const { login, logout, setMyRoom, removeRoom } = this;
-    const { plants, user, myRooms } = this.state;
+    const { plants, user, myRooms, loggedIn } = this.state;
     return (
       <div>
         <Navbar logout={logout} user={user} /> 
           <Switch>
-            <Route exact path='/' component={props => <HomePage login={login} user={user} {...props} setMyRoom={setMyRoom}/>} />
+            <Route exact path='/' component={props => <HomePage login={login} user={user} loggedIn={loggedIn} {...props} setMyRoom={setMyRoom}/>} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={props => <Register login={login} {...props} />} />
             <div style={{marginLeft: '20px'}}>

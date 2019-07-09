@@ -28,7 +28,6 @@ export default class PlantDropdown extends Component {
     }
     
     handleChange = event => {
-        event.preventDefault();
         this.setState({ [event.target.name]: event.target.value });
     };
     

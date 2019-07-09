@@ -6,7 +6,7 @@ const Login = props => {
   const { handleChange, handleSubmit, username, password } = props;
 
   return (
-    <div className="homepage-background">
+    <div className="homepage-background"> 
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Segment>
