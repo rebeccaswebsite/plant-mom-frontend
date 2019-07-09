@@ -29,20 +29,25 @@ const Navbar = props => {
             Plants
           </Menu.Item>
 
-          <Menu.Item
+          {
+          props.user === ""
+          ?<Menu.Item
             name='login'
             as={Link}
             to="/login"
+            position='right'
           >
             Sign In 
           </Menu.Item>
 
-          <Menu.Item
+          :<Menu.Item
             name='logout'
             onClick={() => {window.confirm("Are you sure you want to logout?") && props.logout()} }
+            position='right'
           >
             Sign Out
           </Menu.Item>
+          }
           </Menu>
       )
 }

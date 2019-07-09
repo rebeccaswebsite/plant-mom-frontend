@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { login } from '../services/api'
 import Login from '../components/Login'
+import '../index.css'
 
 export default class HomePage extends Component {
   state = {
@@ -30,8 +31,15 @@ export default class HomePage extends Component {
     const { username, password } = this.state;
 
     return (
-      <div>
-           <Login handleChange={handleChange} handleSubmit={handleSubmit} username={username} password={password} /> 
+      <div className="homepage-background">
+          { this.props.user === "" ? 
+          ( 
+            <div> 
+              <Login handleChange={handleChange} handleSubmit={handleSubmit} username={username} password={password} /> 
+            </div>
+          )
+           : null
+          }
       </div>
     )
   }

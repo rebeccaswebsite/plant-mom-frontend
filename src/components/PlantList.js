@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Card } from 'semantic-ui-react'
 import PlantCard from './PlantCard'
-import Search from './Search'
+import Search from './SearchBar'
 
 export default class PlantList extends Component {
     state = {
@@ -32,6 +32,7 @@ export default class PlantList extends Component {
           <div >
             <Search searchTerm={searchTerm} updateSearchTerm={this.updateSearchTerm} setFilteredPlants={this.setFilteredPlants}/>
             <h3>Plants</h3>
+            <p>Click on any image for plant care instructions</p>
             <Card.Group itemsPerRow={8}>
             { filteredPlants.length === 0 && <p>No plants listed yet!</p>}
             {

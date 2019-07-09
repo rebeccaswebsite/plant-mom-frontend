@@ -29,40 +29,44 @@ export default class HomePage extends Component {
         const { username, password } = this.state;
         
         return (
+        <div className="homepage-background">
         <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
-            <Header as='h2' color='teal' textAlign='center'>
-              <Image src='/logo.png' /> Sign up for Plant Mom
-            </Header>
-            <Form size='large'>
-              <Segment stacked>
-                <Form.Input 
-                  fluid icon='user' 
-                  iconPosition='left' 
-                  placeholder='Choose a username'
-                  type="text" 
-                  name="username"
-                  value={username} 
-                  onChange={handleChange}
-              />
-                <Form.Input
-                  fluid
-                  icon='lock'
-                  iconPosition='left'
-                  placeholder='Choose a password'
-                  type="password" 
-                  name="password" 
-                  value={password} 
-                  onChange={handleChange}
+            <Segment>
+              <Header as='h2' color='teal' textAlign='center'>
+                <Image src='/logo.png' /> Sign up for Plant Mom
+              </Header>
+              <Form size='large'>
+                <Segment stacked>
+                  <Form.Input 
+                    fluid icon='user' 
+                    iconPosition='left' 
+                    placeholder='Choose a username'
+                    type="text" 
+                    name="username"
+                    value={username} 
+                    onChange={handleChange}
                 />
-    
-                <Button onClick={handleSubmit} color='teal' fluid size='large'>
-                  Sign Up
-                </Button>
-              </Segment>
-            </Form>
+                  <Form.Input
+                    fluid
+                    icon='lock'
+                    iconPosition='left'
+                    placeholder='Choose a password'
+                    type="password" 
+                    name="password" 
+                    value={password} 
+                    onChange={handleChange}
+                  />
+      
+                  <Button onClick={handleSubmit} color='teal' fluid size='large'>
+                    Sign Up
+                  </Button>
+                </Segment>
+              </Form>
+            </Segment> 
           </Grid.Column>
         </Grid>
+        </div>
       )
     }
 }

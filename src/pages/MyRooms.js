@@ -15,7 +15,7 @@ class MyRooms extends React.Component {
     return (
       <>
       <Route exact path={this.props.match.url} component={() =>
-        <div>
+        <div >
         <h3>Here are your rooms:</h3>
         { myRooms.length === 0 && <p>You don't have any plant rooms yet...</p>}
         {

@@ -81,17 +81,18 @@ class App extends Component {
     const { plants, user, myRooms } = this.state;
     return (
       <div>
-        <Navbar logout={logout} /> 
-        <Switch>
-          <Route exact path='/' component={props => <HomePage login={login} {...props} setMyRoom={setMyRoom}/>} />
-          <Route path='/my-rooms' component={props => <MyRooms plants= {plants} user={user} myRooms={myRooms} setMyRoom={setMyRoom} removeRoom={removeRoom} {...props} />} />
-          <Route path='/plants' component={props => <PlantList plants={plants} />} />
-          <Route path='/add-detail' component={AddDetail} />
-          <Route path='/add-room' component={props => <AddRoom user={user} setMyRoom={setMyRoom} {...props} />} />
-          <Route path='/login' component={Login} /> />
-          <Route path='/register' component={props => <Register login={login} {...props} />} />
-          <Route component={() => <h1>Page not found.</h1>} />
-        </Switch>
+        <Navbar logout={logout} user={user} /> 
+          <Switch>
+            <Route exact path='/' component={props => <HomePage login={login} user={user} {...props} setMyRoom={setMyRoom}/>} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={props => <Register login={login} {...props} />} />
+            <div style={{marginLeft: '20px'}}>
+            <Route path='/my-rooms' component={props => <MyRooms plants= {plants} user={user} myRooms={myRooms} setMyRoom={setMyRoom} removeRoom={removeRoom} {...props} />} />
+            <Route path='/plants' component={props => <PlantList plants={plants} />} />
+            <Route path='/add-detail' component={AddDetail} />
+            <Route path='/add-room' component={props => <AddRoom user={user} setMyRoom={setMyRoom} {...props} />} />
+            </div>
+          </Switch>
       </div>
     )
   }

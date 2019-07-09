@@ -56,7 +56,7 @@ export default class AddDetail extends Component {
 
         return (
           <div>
-            <Dropdown 
+            <Dropdown
                 placeholder='Select Plant'
                 fluid
                 search
