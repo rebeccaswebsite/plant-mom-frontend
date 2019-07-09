@@ -71,8 +71,11 @@ class App extends Component {
         .then(data => {
           if (data.error) {
             alert(data.error)
-          } 
+          } else {
+            this.login(data)
+          }
         })
+        
     }
   }
 

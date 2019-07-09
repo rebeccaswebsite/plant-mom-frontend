@@ -17,7 +17,7 @@ export default class PlantList extends Component {
         const filteredPlants = this.props.plants
           .filter(plant => plant["common_name"].toLowerCase().includes(this.state.searchTerm.toLowerCase()))
         this.setState({ filteredPlants: filteredPlants })
-        if (this.state.searchTerm == '') {
+        if (this.state.searchTerm === '') {
           this.setState({ filteredPlants: this.props.plants })
         }
       }

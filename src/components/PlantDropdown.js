@@ -43,7 +43,7 @@ export default class PlantDropdown extends Component {
     
         return (
             <div>
-            <h2>Add another plant to your room:</h2>
+            <h2>Add a plant to your room:</h2>
             <Dropdown 
                 placeholder='Select Plant'
                 fluid
@@ -58,7 +58,7 @@ export default class PlantDropdown extends Component {
                 <input name="suggestion" value={suggestion} onChange={handleChange}  />
                 </Form.Field> */
                 /* </Form> */}
-                <Button onClick={() => handleSubmit(room.id, plantId)}>Submit</Button>
+                <Button onClick={() => handleSubmit(room.id, plantId)}>Add</Button>
             </div>
         )
     }
