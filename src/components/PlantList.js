@@ -35,21 +35,25 @@ export default class PlantList extends Component {
       const { filteredPlants, searchTerm } = this.state
       return (
         <div >
-          <Search searchTerm={searchTerm} search={this.search} />
-          <h3>Plants</h3>
-          <p>Click on any image for plant care instructions</p>
-          <Card.Group itemsPerRow={8}>
-          { filteredPlants.length === 0 && <p>No plants listed yet!</p>}
-          {
-            filteredPlants !== 'undefined'
-            ? 
-              filteredPlants.map(plant =>
-              <PlantCard key={plant.id} plant={plant} />
-              )
-        
-            : null
-          }
-          </Card.Group>
+          <div className="plants-background">
+            <h3 className="plants-text">Plants</h3>
+          </div>
+          <div style={{marginLeft: '20px'}}>
+            <Search searchTerm={searchTerm} search={this.search} />
+            <p>Click on any image for plant care instructions</p>
+            <Card.Group itemsPerRow={8}>
+            { filteredPlants.length === 0 && <p>No plants listed yet!</p>}
+            {
+              filteredPlants !== 'undefined'
+              ? 
+                filteredPlants.map(plant =>
+                <PlantCard key={plant.id} plant={plant} />
+                )
+          
+              : null
+            }
+            </Card.Group>
+          </div>
         </div>
       )
     }

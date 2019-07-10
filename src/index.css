@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Pirata One";
+  src: url("fonts/pirataone-regular.ttf");
+}
+  
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
@@ -18,4 +23,59 @@ code {
   background-size: 'cover';
   background-repeat: 'no-repeat'
 }
- 
+
+.background-box {
+  background: teal;
+  height: 30vh;
+  display: flex;
+}
+
+.your-rooms {
+  align-self: flex-end;
+  /* color: rgb(235,213,212); */
+  color: rgb(179,210,119);
+  padding: 0px 0px 30px 30px;
+  font-family: 'Pirata One', Arial, sans-serif;
+  font-size: 80px;
+  font-weight:normal;
+  font-style:italic;
+}
+
+.room-title {
+  padding: 30px 0px 0px 30px;
+  color: black;
+}
+
+.add-room-text {
+  padding: 30px 0px 0px 30px;
+  color: teal;
+}
+
+h3:hover {
+  color: grey;
+}
+
+.room-container {
+  margin-left: '20px';
+}
+
+.plants-background {
+  background: rgb(235,213,212);
+  height: 30vh;
+  display: flex;
+}
+
+.plants-text {
+  align-self: flex-end;
+  color: teal;
+  /* color: rgb(179,210,119); */
+  padding: 0px 0px 30px 30px;
+  font-family: 'Pirata One', Arial, sans-serif;
+  font-size: 80px;
+  font-weight:normal;
+  font-style:italic;
+}
+
+
+
+

@@ -19,7 +19,7 @@ class Room extends React.Component {
   render () {
     const { room, plants } = this.props;    
     return (
-      <div>
+      <div className="room-container">
         <h1>{room.name}</h1>
         <Divider/>
         <Card.Group itemsPerRow={8}>
@@ -31,7 +31,7 @@ class Room extends React.Component {
         <Divider/>
         <PlantDropdown handleSubmit={this.handleSubmit} plants={plants} room={room} />
         <Divider/>
-        <Button onClick={this.handleClick}>Delete Room</Button>
+        <Button basic color='red' onClick={this.handleClick}>Delete Room</Button>
       </div>
     )
   }

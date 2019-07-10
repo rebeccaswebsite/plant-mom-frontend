@@ -30,7 +30,7 @@ export default class HomePage extends Component {
         
         return (
         <div className="homepage-background">
-        <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid textAlign='center' style={{ height: '100vh', marginTop: '0rem' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Segment>
               <Header as='h2' color='teal' textAlign='center'>
@@ -66,6 +66,7 @@ export default class HomePage extends Component {
             </Segment> 
           </Grid.Column>
         </Grid>
+        <p>Illustration by <a href="https://kath-nash.com/buying-plants-online" target="_blank">Kath Nash</a></p>
         </div>
       )
     }

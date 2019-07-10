@@ -57,7 +57,7 @@ export default class PlantDropdown extends Component {
                 <input name="suggestion" value={suggestion} onChange={handleChange}  />
                 </Form.Field> */
                 /* </Form> */}
-                <Button onClick={() => handleSubmit(room.id, plantId)}>Add</Button>
+                <Button color='teal' style={{ marginTop: '1rem' }} onClick={() => handleSubmit(room.id, plantId)}>Add</Button>
             </div>
         )
     }

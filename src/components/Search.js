@@ -7,7 +7,7 @@ export default class Search extends Component {
 
     render() {
         return (
-            <div >
+            <div style={{marginTop: '2rem'}} >
                 <form onSubmit={e => e.preventDefault()} className="ui category search" >
                     <div className="ui icon input">
                     <input value={this.props.searchTerm} onChange={this.handleChange} placeholder='Search' />

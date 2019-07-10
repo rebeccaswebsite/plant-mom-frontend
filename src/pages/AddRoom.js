@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Button, Form } from 'semantic-ui-react'
+import { Button, Form, Grid, Segment } from 'semantic-ui-react'
 import { addRoom } from '../services/api'
 
 export default class AddRoom extends Component {
@@ -12,8 +12,6 @@ export default class AddRoom extends Component {
       if (data.error) {
         alert(data.error);
       } else {
-        console.log(data)
-        alert('Your room has been added!')
         this.props.setMyRoom();
         this.props.history.push(`/my-rooms/${data.id}`)
       }
@@ -29,17 +27,21 @@ export default class AddRoom extends Component {
         const { roomName } = this.state
 
         return (
-            <div>
-                <h2>First, pick a name for your room</h2>
-                <Form>
-                    <Form.Field>
-                        <label>Room Name</label>
-                        <input onChange={this.handleChange} name="roomName" value={roomName} placeholder='Room Name' />
-                    </Form.Field>
-                    <Button onClick={this.handleSubmit} type='submit'>Next</Button>
-                </Form>
+            <div className="add-room-background"> 
+              <Grid textAlign='center' style={{ height: '100vh', marginTop: '0rem', backgroundColor: 'rgb(255,219,203)' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                  <Segment textAlign='left'>
+                      <h2>First, pick a name for your room</h2>
+                      <Form>
+                          <Form.Field>
+                              <input onChange={this.handleChange} name="roomName" value={roomName} placeholder='Room Name' />
+                          </Form.Field>
+                          <Button onClick={this.handleSubmit} type='submit'>Next</Button>
+                      </Form>
+                      </Segment>
+                </Grid.Column>
+              </Grid>
             </div>
         )
     }
 }
-

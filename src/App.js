@@ -92,9 +92,9 @@ class App extends Component {
             <Route exact path='/' component={props => <HomePage login={login} user={user} loggedIn={loggedIn} {...props} setMyRoom={setMyRoom}/>} />
             <Route path='/login' component={Login} />
             <Route path='/register' component={props => <Register login={login} {...props} />} />
-            <div style={{marginLeft: '20px'}}>
             <Route path='/my-rooms' component={props => <MyRooms plants= {plants} user={user} myRooms={myRooms} setMyRoom={setMyRoom} removeRoom={removeRoom} {...props} />} />
             <Route path='/plants' component={props => <PlantList plants={plants} />} />
+            <div style={{marginLeft: '20px'}}>
             <Route path='/add-detail' component={AddDetail} />
             <Route path='/add-room' component={props => <AddRoom user={user} setMyRoom={setMyRoom} {...props} />} />
             </div>
