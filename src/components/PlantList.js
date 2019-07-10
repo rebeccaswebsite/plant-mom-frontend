@@ -5,7 +5,6 @@ import Search from './Search'
 
 export default class PlantList extends Component {
     state = {
-      searchTerm: '',
       filteredPlants: []
       }
 
@@ -13,22 +12,14 @@ export default class PlantList extends Component {
       this.setState({ filteredPlants: this.props.plants })
     }
 
-    setFilteredPlants = () => {
+    setFilteredPlants = (searchTerm) => {
       const filteredPlants = this.props.plants
-        .filter(plant => plant["common_name"].toLowerCase().includes(this.state.searchTerm.toLowerCase()))
+        .filter(plant => searchTerm.length > 0 ? plant["common_name"].toLowerCase().includes(searchTerm) : true)
       this.setState({ filteredPlants: filteredPlants })
-      if (this.state.searchTerm == "") {
-        this.setState({ filteredPlants: this.props.plants  })
-      }
-    }
-
-    updateSearchTerm = (event) => {
-      this.setState({ searchTerm: event.target.value })
     }
     
     search = (event) => {
-      this.updateSearchTerm(event)
-      this.setFilteredPlants()
+      this.setFilteredPlants(event.target.value)
     }
   
     render () {
@@ -38,8 +29,8 @@ export default class PlantList extends Component {
           <div className="plants-background">
             <h3 className="plants-text">Plants</h3>
           </div>
-          <div style={{marginLeft: '20px'}}>
-            <Search searchTerm={searchTerm} search={this.search} />
+          <div style={{margin: '2rem 2rem 2rem 2rem' }}>
+            <Search search={this.search} />
             <p>Click on any image for plant care instructions</p>
             <Card.Group itemsPerRow={8}>
             { filteredPlants.length === 0 && <p>No plants listed yet!</p>}
@@ -60,3 +51,12 @@ export default class PlantList extends Component {
     }
 
     
+    // setFilteredPlants = plantCollection => {
+    //   return plantCollection.filter( plant => {
+    //     if (this.state.searchTerm) {
+    //       plant["common_name"].toLowerCase().includes(this.state.searchTerm.toLowerCase())
+    //     } else {
+    //       return true
+    //     }
+    //   })
+    // }

@@ -43,6 +43,7 @@ code {
 
 .room-title {
   padding: 30px 0px 0px 30px;
+  font-size: 40px;
   color: black;
 }
 
@@ -60,15 +61,16 @@ h3:hover {
 }
 
 .plants-background {
-  background: rgb(235,213,212);
+  /* background: rgb(235,213,212); PINK */
+  /* background: rgb(255,219,203); CORAL*/
+  background: rgb(255,240,231);
   height: 30vh;
   display: flex;
 }
 
 .plants-text {
   align-self: flex-end;
-  color: teal;
-  /* color: rgb(179,210,119); */
+  color: rgb(179,210,119);
   padding: 0px 0px 30px 30px;
   font-family: 'Pirata One', Arial, sans-serif;
   font-size: 80px;
