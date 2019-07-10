@@ -13,7 +13,7 @@ class Room extends React.Component {
 
   handleSubmit = (room_id, plant_id)=> {
     updateRoom(room_id, plant_id)
-      .then(this.props.setMyRoom())
+      .then(this.props.setMyRoom)
   }
 
   render () {
