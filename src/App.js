@@ -74,6 +74,7 @@ class App extends Component {
             alert(data.error)
           } else {
             this.login(data)
+            this.setMyRoom()
           }
         })
         
@@ -83,6 +84,7 @@ class App extends Component {
   render() {
     const { login, logout, setMyRoom, removeRoom } = this;
     const { plants, user, myRooms, loggedIn } = this.state;
+    
     return (
       <div>
         <Navbar logout={logout} user={user} /> 

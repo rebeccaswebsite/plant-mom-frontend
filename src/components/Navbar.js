@@ -4,7 +4,7 @@ import { Menu } from 'semantic-ui-react'
 
 const Navbar = props => {
     return (
-        <Menu>
+        <Menu style={{marginBottom: '0'}}>
           <Menu.Item
             name=''
             as={ Link }

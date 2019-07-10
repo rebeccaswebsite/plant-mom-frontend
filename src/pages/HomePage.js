@@ -30,14 +30,13 @@ export default class HomePage extends Component {
   render() {
     const { handleChange, handleSubmit } = this;
     const { username, password } = this.state;
-
     return (
       <div>
           { !this.props.loggedIn ? ( 
-            <div> 
+       
              <Login handleChange={handleChange} handleSubmit={handleSubmit} username={username} password={password} /> 
-            </div>
-          ) :  <img src={BackgroundImage} alt="background" />
+         
+          ) :  <img src={BackgroundImage} alt="background"/>
           }
       </div>
     );
