@@ -36,10 +36,11 @@ export default class AddDetail extends Component {
           if (data.error) {
             console.log(data.error)
           } else {
+            this.setState(prevState => ({ active: !prevState.active }))
             this.setState({ sent: true });
             window.setTimeout(() => {
               this.props.history.push('/plants');
-            }, 2000)
+            }, 1000)
           }
         });
       };
@@ -54,7 +55,7 @@ export default class AddDetail extends Component {
     }
     
       render() {
-        const { suggestion, sent } = this.state;
+        const { suggestion, sent, active } = this.state;
         const { handleChange, handleSubmit } = this;
 
         return (
@@ -76,10 +77,16 @@ export default class AddDetail extends Component {
                     <label>Suggestion</label>
                     <input name="suggestion" value={suggestion} onChange={handleChange}  />
                     </Form.Field>
-                    <Button class="sent-button" onClick={handleSubmit} type='submit'>
+                    <Button 
+                    onClick={handleSubmit} 
+                    type='submit'
+                    active={active}
+                    color={active ? 'teal' : null}
+                    icon='add'
+                    >
                     { !sent 
                     ? "Send"
-                    : "Sent"
+                    : "Sent!"
                     }
                     </Button>
                 </Form>
