@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import { Dropdown, Button, Form, Grid, Segment } from 'semantic-ui-react'
 import { getPlants, sendSuggestion } from '../services/api';
-import Message from '../components/Message'
 
 export default class AddDetail extends Component {
     state = {
         plantId: "",
         suggestion: "",
         plantNames: [],
-        showMessage: false
+        sent: false
     };
     
     componentDidMount () {
@@ -37,11 +36,10 @@ export default class AddDetail extends Component {
           if (data.error) {
             console.log(data.error)
           } else {
-            this.setState({ message: true });
+            this.setState({ sent: true });
             window.setTimeout(() => {
               this.props.history.push('/plants');
-            }, 5000)
-            this.setState({ message: false });
+            }, 2000)
           }
         });
       };
@@ -56,7 +54,7 @@ export default class AddDetail extends Component {
     }
     
       render() {
-        const { suggestion, showMessage } = this.state;
+        const { suggestion, sent } = this.state;
         const { handleChange, handleSubmit } = this;
 
         return (
@@ -78,9 +76,13 @@ export default class AddDetail extends Component {
                     <label>Suggestion</label>
                     <input name="suggestion" value={suggestion} onChange={handleChange}  />
                     </Form.Field>
-                    <Button onClick={handleSubmit} type='submit'>Submit</Button>
+                    <Button class="sent-button" onClick={handleSubmit} type='submit'>
+                    { !sent 
+                    ? "Send"
+                    : "Sent"
+                    }
+                    </Button>
                 </Form>
-                { showMessage && <Message/> }
                 </Segment>
               </Grid.Column>
             </Grid>
