@@ -14,7 +14,7 @@ export default class HomePage extends Component {
   handleSubmit = () => {
     login(this.state.username, this.state.password).then(data => {
       if (data.error) {
-        alert(data.error);
+        console.log(data.error);
       } else {
         this.props.login(data);
         this.props.setMyRoom();

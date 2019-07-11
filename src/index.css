@@ -32,7 +32,6 @@ code {
 
 .your-rooms {
   align-self: flex-end;
-  /* color: rgb(235,213,212); */
   color: rgb(179,210,119);
   padding: 0px 0px 30px 30px;
   font-family: 'Pirata One', Arial, sans-serif;
@@ -45,7 +44,6 @@ code {
   font-size: 40px;
   color: teal;
   float: left;
-  width: 33.33%;
 }
 
 .plant-logo-image {
@@ -63,7 +61,7 @@ code {
   float: left;
   position: fixed; 
   bottom: 7%;
-  left: 2%;
+  left: 3%;
   width: 100%;
   font-size: 16px;
 }
@@ -76,8 +74,19 @@ h3:hover {
   margin: 2rem 2rem 2rem 2rem;
 }
 
+.my-rooms-column {
+ width: 33.33%;
+ float: left;
+ height: 100px ;
+} 
+
+.my-rooms-row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .plants-background {
-  /* background: rgb(255,219,203); CORAL*/
   background: rgb(255,240,231);
   height: 30vh;
   display: flex;

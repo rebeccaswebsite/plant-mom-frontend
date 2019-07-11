@@ -16,7 +16,7 @@ class Room extends React.Component {
   }
 
   goBack = () => {
-
+    this.props.history.push('/my-rooms')
   }
 
   render () {

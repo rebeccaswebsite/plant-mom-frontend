@@ -21,17 +21,21 @@ class MyRooms extends React.Component {
             <h1 className="your-rooms">Your Rooms</h1>
           </div>
           <div className="my-rooms-container">
-          { myRooms.length === 0 && <p>You don't have any plant rooms yet...</p>}
-          {
-            myRooms.map(room =>
-              <Link to={`/my-rooms/${room.id}`}>
-                <img className="plant-logo-image" src={PlantLogo} alt="plant logo"/>
-                <h3 className="room-title">
-                  {room.name}
-                </h3>
-              </Link>
-            )
-          }
+            { myRooms.length === 0 && <p>You don't have any plant rooms yet...</p>}
+            <div className="my-rooms-row">
+            {
+              myRooms.map(room =>
+                <Link to={`/my-rooms/${room.id}`}>
+                  <div className="my-rooms-column">
+                    <img className="plant-logo-image" src={PlantLogo} alt="plant logo"/>
+                    <h3 className="room-title">
+                      {room.name}
+                    </h3>
+                  </div>
+                </Link>
+              )
+            }
+            </div>
           </div>
           <div className="rooms-footer">
             <Link to="/add-room">

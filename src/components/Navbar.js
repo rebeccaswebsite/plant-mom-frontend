@@ -42,7 +42,7 @@ const Navbar = props => {
 
           :<Menu.Item
             name='logout'
-            onClick={() => {window.confirm("Are you sure you want to logout?") && props.logout()} }
+            onClick={() => props.logout()}
             position='right'
           >
             Sign Out

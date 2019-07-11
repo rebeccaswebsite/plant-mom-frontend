@@ -17,7 +17,7 @@ export default class PlantCard extends Component {
         const { plant } = this.props
         return(
             <Card>
-                <Image onClick={this.handleClick} src={plant.img} wrapped ui={false} />
+                <img onClick={this.handleClick} src={plant.img} style={{height: 300, width: 'auto'}} />
                 <Card.Content>
                 <Card.Header>{plant.common_name}</Card.Header>
                 </Card.Content>

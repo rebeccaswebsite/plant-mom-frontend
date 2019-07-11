@@ -10,7 +10,7 @@ export default class AddRoom extends Component {
   handleSubmit = () => {
     addRoom(this.props.user.user_id, this.state.roomName).then(data => {
       if (data.error) {
-        alert(data.error);
+        console.log(data.error);
       } else {
         this.props.setMyRoom();
         this.props.history.push(`/my-rooms/${data.id}`)
