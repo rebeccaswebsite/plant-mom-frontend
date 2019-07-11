@@ -7,6 +7,9 @@ const Login = props => {
 
   return (
     <div className="homepage-background"> 
+    <div className="homepage-info-containter">
+        <h1  className="homepage-info">Plant Mom is a houseplant tracker that will help you keep your houseplants alive</h1>
+    </div>
     <Grid textAlign='center' style={{ height: '100vh', marginTop: '0rem' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Segment>

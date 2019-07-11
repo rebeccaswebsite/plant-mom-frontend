@@ -96,3 +96,28 @@ h3:hover {
 .my-rooms-container {
   margin: 2rem 2rem 2rem 2rem;
 }
+
+.homepage-info-containter {
+  width: 570px;
+  padding: 30px;
+}
+
+.homepage-info {
+  transition: .5s ease-in-out;
+  background: linear-gradient(to right, rgba(255,240,231,1.0) 50%, rgba(255,219,203,1.0) 50%);
+  background-size: 200%;
+  background-position: 0 0;
+  display: inline;
+  transition: .5s ease-in-out;
+  font-family: 'Pirata One', Arial, sans-serif;
+  color: teal;
+  font-size: 50px;
+  font-weight:normal;
+  font-style:italic; 
+  margin: 2rem 0rem 2rem 0rem;
+}
+
+.homepage-info:hover {
+  background-position: -100% 0;
+}
+
