@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import { Dropdown, Button, Form } from 'semantic-ui-react'
+import { Dropdown, Button, Form, Grid, Segment } from 'semantic-ui-react'
 import { getPlants, sendSuggestion } from '../services/api';
+import Message from '../components/Message'
 
 export default class AddDetail extends Component {
     state = {
         plantId: "",
         suggestion: "",
-        plantNames: []
+        plantNames: [],
+        showMessage: false
     };
     
     componentDidMount () {
@@ -33,10 +35,13 @@ export default class AddDetail extends Component {
     handleSubmit = () => {
         sendSuggestion(this.state.plantId, this.state.suggestion).then(data => {
           if (data.error) {
-            alert(data.error);
+            console.log(data.error)
           } else {
-            alert('Thanks for adding this suggestion. An admin will review your suggestion soon. Happy planting!')
-            this.props.history.push('/plants')
+            this.setState({ message: true });
+            window.setTimeout(() => {
+              this.props.history.push('/plants');
+            }, 5000)
+            this.setState({ message: false });
           }
         });
       };
@@ -51,26 +56,34 @@ export default class AddDetail extends Component {
     }
     
       render() {
-        const { suggestion } = this.state;
+        const { suggestion, showMessage } = this.state;
         const { handleChange, handleSubmit } = this;
 
         return (
           <div>
-            <Dropdown
-                placeholder='Select Plant'
-                fluid
-                search
-                selection
-                options={this.state.plantNames}
-                onChange={this.getPlantId}
-            />
-             <Form>
-                <Form.Field>
-                <label>Suggestion</label>
-                <input name="suggestion" value={suggestion} onChange={handleChange}  />
-                </Form.Field>
-                <Button onClick={handleSubmit} type='submit'>Submit</Button>
-            </Form>
+          <Grid textAlign='center' style={{ height: '100vh', marginTop: '0rem', background: 'rgb(235,213,212)' }} verticalAlign='middle'>
+            <Grid.Column style={{ maxWidth: 450 }}>
+             <Segment textAlign='left'>
+             <h4>Please let us know if any plant care information needs updating:</h4>
+                <Dropdown
+                    placeholder='Select Plant'
+                    fluid
+                    search
+                    selection
+                    options={this.state.plantNames}
+                    onChange={this.getPlantId}
+                />
+                <Form>
+                    <Form.Field>
+                    <label>Suggestion</label>
+                    <input name="suggestion" value={suggestion} onChange={handleChange}  />
+                    </Form.Field>
+                    <Button onClick={handleSubmit} type='submit'>Submit</Button>
+                </Form>
+                { showMessage && <Message/> }
+                </Segment>
+              </Grid.Column>
+            </Grid>
             </div>
         )
     }

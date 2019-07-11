@@ -27,7 +27,7 @@ export default class PlantList extends Component {
       return (
         <div >
           <div className="plants-background">
-            <h3 className="plants-text">Plants</h3>
+            <h1 className="plants-text">Plants</h1>
           </div>
           <div style={{margin: '2rem 2rem 2rem 2rem' }}>
             <Search search={this.search} />

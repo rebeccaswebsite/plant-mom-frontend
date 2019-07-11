@@ -42,7 +42,7 @@ export default class PlantDropdown extends Component {
     
         return (
             <div>
-            <h2>Add a plant to your room:</h2>
+            <h4>Add a plant to your room:</h4>
             <Dropdown 
                 placeholder='Select Plant'
                 fluid

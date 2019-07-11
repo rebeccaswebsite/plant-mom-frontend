@@ -28,7 +28,7 @@ export default class AddRoom extends Component {
 
         return (
             <div className="add-room-background"> 
-              <Grid textAlign='center' style={{ height: '100vh', marginTop: '0rem', backgroundColor: 'rgb(255,219,203)' }} verticalAlign='middle'>
+              <Grid textAlign='center' style={{ height: '100vh', marginTop: '0rem', background: 'rgb(235,213,212)' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
                   <Segment textAlign='left'>
                       <h2>First, pick a name for your room</h2>

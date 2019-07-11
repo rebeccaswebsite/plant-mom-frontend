@@ -26,7 +26,7 @@ code {
 
 .background-box {
   background: teal;
-  height: 30vh;
+  height: 40vh;
   display: flex;
 }
 
@@ -42,26 +42,41 @@ code {
 }
 
 .room-title {
-  padding: 30px 0px 0px 30px;
   font-size: 40px;
-  color: black;
+  color: teal;
+  float: left;
+  width: 33.33%;
+}
+
+.plant-logo-image {
+  float:left;
+}
+
+.rooms-footer {
+  background: rgb(235,213,212);
+  margin: 0;
+  width: 100%;
 }
 
 .add-room-text {
-  padding: 30px 0px 0px 30px;
   color: teal;
+  float: left;
+  position: fixed; 
+  bottom: 7%;
+  left: 2%;
+  width: 100%;
+  font-size: 16px;
 }
 
 h3:hover {
-  color: grey;
+  color: rgb(0,158,158);
 }
 
 .room-container {
-  margin-left: '20px';
+  margin: 2rem 2rem 2rem 2rem;
 }
 
 .plants-background {
-  /* background: rgb(235,213,212); PINK */
   /* background: rgb(255,219,203); CORAL*/
   background: rgb(255,240,231);
   height: 30vh;
@@ -78,6 +93,6 @@ h3:hover {
   font-style:italic;
 }
 
-
-
-
+.my-rooms-container {
+  margin: 2rem 2rem 2rem 2rem;
+}

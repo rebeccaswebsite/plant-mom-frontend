@@ -1,7 +1,6 @@
 import React from 'react'
 import PlantCard from '../components/PlantCard'
 import PlantDropdown from '../components/PlantDropdown'
-import { Link } from 'react-router-dom'
 import { Card, Button, Divider } from 'semantic-ui-react'
 import { deleteRoom, updateRoom } from '../services/api'
 
@@ -16,22 +15,29 @@ class Room extends React.Component {
       .then(this.props.setMyRoom)
   }
 
+  goBack = () => {
+
+  }
+
   render () {
     const { room, plants } = this.props;    
     return (
       <div className="room-container">
         <h1>{room.name}</h1>
+        <p>Click on a plant to see how to take care of it</p>
         <Divider/>
         <Card.Group itemsPerRow={8}>
             {
               room.plants.map((plant,index) => <PlantCard key={index} plant={plant} /> )
             }
-            <Link to='/my-rooms'>BACK</Link>
         </Card.Group> 
         <Divider/>
         <PlantDropdown handleSubmit={this.handleSubmit} plants={plants} room={room} />
         <Divider/>
-        <Button basic color='red' onClick={this.handleClick}>Delete Room</Button>
+        <Button.Group>
+          <Button basic color='teal' onClick={this.goBack}>Go Back</Button>
+          <Button basic color='red' onClick={this.handleClick}>Delete Room</Button>
+        </Button.Group>
       </div>
     )
   }

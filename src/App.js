@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   logout = () => {
-    this.setState({ user: "", loggedIn: false })
+    this.setState({ user: "", myRooms: [], loggedIn: false })
     localStorage.removeItem('token')
     this.props.history.push('/')
   }
@@ -41,7 +41,7 @@ class App extends Component {
     getMyRooms()
       .then(data => {
         if (data.error) {
-          alert(data.error)
+          console.log(data.error)
         } else {
           this.setState({ myRooms: data })
         }
@@ -58,7 +58,7 @@ class App extends Component {
     getPlants()
       .then(data => {
         if (data.error) {
-          alert(data.error)
+          console.log(data.error)
         } else {
           this.setState({ plants: data["plants"] })
         }
@@ -71,7 +71,7 @@ class App extends Component {
       validate()
         .then(data => {
           if (data.error) {
-            alert(data.error)
+            console.log(data.error)
           } else {
             this.login(data)
             this.setMyRoom()
