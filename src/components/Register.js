@@ -30,7 +30,10 @@ export default class HomePage extends Component {
         
         return (
         <div className="homepage-background">
-        <Grid textAlign='center' style={{ height: '100vh', marginTop: '0rem' }} verticalAlign='middle'>
+        <div className="homepage-info-containter">
+            <h1  className="homepage-info">Plant Mom is a houseplant tracker that will help you keep your houseplants alive</h1>
+        </div>
+        <Grid textAlign='center' style={{ height: '70vh', marginTop: '0rem' }} verticalAlign='middle'>
           <Grid.Column style={{ maxWidth: 450 }}>
             <Segment>
               <Header as='h2' color='teal' textAlign='center'>
