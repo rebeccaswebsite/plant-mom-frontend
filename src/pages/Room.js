@@ -26,7 +26,7 @@ class Room extends React.Component {
         <h1>{room.name}</h1>
         <p>Click on a plant to see how to take care of it</p>
         <Divider/>
-        <Card.Group itemsPerRow={7}>
+        <Card.Group itemsPerRow={6}>
             {
               room.plants.map((plant,index) => <PlantCard key={index} plant={plant} /> )
             }
