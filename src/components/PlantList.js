@@ -32,7 +32,7 @@ export default class PlantList extends Component {
           <div style={{margin: '2rem 2rem 2rem 2rem' }}>
             <Search search={this.search} />
             <p>Click on any image for plant care instructions</p>
-            <Card.Group itemsPerRow={6}>
+            <Card.Group itemsPerRow={5}>
             { filteredPlants.length === 0 && <p>No plants listed yet!</p>}
             {
               filteredPlants !== 'undefined'
