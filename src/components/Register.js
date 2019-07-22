@@ -69,7 +69,7 @@ export default class HomePage extends Component {
             </Segment> 
           </Grid.Column>
         </Grid>
-        <p>Illustration by <a href="https://kath-nash.com/buying-plants-online" target="_blank">Kath Nash</a></p>
+        <p>Illustration by <a href="https://kath-nash.com/buying-plants-online" target="_blank" rel="noopener noreferrer">Kath Nash</a></p>
         </div>
       )
     }

@@ -23,7 +23,7 @@ export default class PlantList extends Component {
     }
   
     render () {
-      const { filteredPlants, searchTerm } = this.state
+      const { filteredPlants } = this.state
       return (
         <div >
           <div className="plants-background">

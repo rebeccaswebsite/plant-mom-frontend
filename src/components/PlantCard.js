@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Card, Image, Icon } from 'semantic-ui-react'
+import { Card, Icon } from 'semantic-ui-react'
 import PlantDetails from './PlantDetails'
-import { deleteRoomPlant } from '../services/api'
 
 export default class PlantCard extends Component {
     state = {
@@ -17,7 +16,7 @@ export default class PlantCard extends Component {
         const { plant } = this.props
         return(
             <Card>
-                <img onClick={this.handleClick} src={plant.img} style={{height: 300, width: 'auto'}} />
+                <img onClick={this.handleClick} alt="plant" src={plant.img} style={{height: 300, width: 'auto'}} />
                 <Card.Content>
                 <Card.Header>{plant.common_name}</Card.Header>
                 </Card.Content>

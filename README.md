@@ -43,7 +43,7 @@ To open the app on your machine, navigate into the frontend project directory an
 
 Which runs the app in development mode. 
 
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 
 You’re now all set up to look after your houseplants a little bit better. 
 

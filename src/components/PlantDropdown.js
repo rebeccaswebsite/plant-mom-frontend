@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Dropdown, Button, Form } from 'semantic-ui-react'
+import { Dropdown, Button } from 'semantic-ui-react'
 
 export default class PlantDropdown extends Component {
     state = {
@@ -37,8 +37,8 @@ export default class PlantDropdown extends Component {
     
         render() {
         const { handleSubmit, room } = this.props;
-        const { plantId, plantNames, suggestion } = this.state;
-        const { getPlantId, handleChange } = this;
+        const { plantId, plantNames } = this.state;
+        const { getPlantId } = this;
     
         return (
             <div>
@@ -51,26 +51,8 @@ export default class PlantDropdown extends Component {
                 options={plantNames}
                 onChange={getPlantId}
             />
-                {/* <Form>
-                <Form.Field>
-                <label>Suggestion</label>
-                <input name="suggestion" value={suggestion} onChange={handleChange}  />
-                </Form.Field> */
-                /* </Form> */}
                 <Button color='teal' style={{ marginTop: '1rem' }} onClick={() => handleSubmit(room.id, plantId)}>Add</Button>
             </div>
         )
     }
 }
-
-
-// handleSubmit = () => {
-//     sendSuggestion(this.state.plantId, this.state.suggestion).then(data => {
-//         if (data.error) {
-//         alert(data.error);
-//         } else {
-//         alert('Thanks for adding this suggestion. An admin will review your suggestion soon. Happy planting!')
-//         this.props.history.push('/plants')
-//         }
-//     });
-//     };

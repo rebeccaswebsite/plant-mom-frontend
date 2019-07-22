@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import { login } from '../services/api'
 import Login from '../components/Login'
 import '../index.css'
@@ -41,7 +40,7 @@ export default class HomePage extends Component {
           (
             <>
               <img src={BackgroundImage} alt="background"/>
-              <p>Illustration by <a href="https://kath-nash.com/buying-plants-online" target="_blank">Kath Nash</a></p>
+              <p>Illustration by <a href="https://kath-nash.com/buying-plants-online" target="_blank" rel="noopener noreferrer">Kath Nash</a></p>
             </>
           )
           }
