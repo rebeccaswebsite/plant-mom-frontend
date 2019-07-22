@@ -48,3 +48,6 @@ Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 You’re now all set up to look after your houseplants a little bit better. 
 
 Thank you for checking out Plant Mom!
+
+# Author
+Rebecca Huseyin
